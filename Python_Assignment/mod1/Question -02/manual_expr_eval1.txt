@@ -1,0 +1,12 @@
+EXPRESSION-02 
+a,b,x,y=4,2,5,4
+result=5*b*b*x-3*a*y*y-8*b*b*x+10*a*y
+Steps:
+1.firstly, lexical Phase will evaluate as 
+result=5*2*2*5-3*4*4*4-8*2*2*5+10*4*4
+2. Precedence of * is more over +/- , so it will be eveluated as-
+result=100-192-160+160
+3. Precedence of +/- is same and their association is left to right ,so evaluated as-
+result=-92-160+160
+result=-252+160
+result=-92

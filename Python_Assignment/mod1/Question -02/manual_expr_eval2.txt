@@ -1,0 +1,16 @@
+Assignment 2(b)
+
+a,y,c=2,3,7
+cal=4*a*y/c-a*y/c
+Steps:
+1.firstly, lexical Phase will evaluate as 
+cal=4*2*3/7-2*3/7
+2.* and / will be evaluated first because of precedence in the assosiciation of left to right.
+cal=8*3/7-2*3/7
+cal=24/7-2*3/7
+cal=3.428-2*3/7
+cal=3.428-6/7
+cal=3.428-0.857
+cal=2.57
+
+Answer: 2.57

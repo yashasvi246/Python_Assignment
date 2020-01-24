@@ -1,0 +1,15 @@
+Question.01
+
+a = 4*3/4+4/4+8-2+5/8
+ 
+Steps:
+1.Precedence of * and  / are the higher than + /- so we evaluate them first. As there are  both * and / both are multiple so we will check for associativity. Associativity of * and / is from Left to Right.
+a=12/4+4/4+8-2+5/8
+a=3+4/4+8-2+5/8
+a=3+1+8-2+5/8
+2.Now the precedence of +/- are same and their associativity is left to right so we evaluate it as-
+a=3+1+8-2+0.625
+a=4+8-2+0.625
+a=12-2+0.625
+a=10+0.625
+a=10.625

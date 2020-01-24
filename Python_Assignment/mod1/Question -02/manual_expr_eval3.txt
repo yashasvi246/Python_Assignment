@@ -1,0 +1,13 @@
+Expression-3
+a,b,c,y=4.4,0.0,4.2,3.0
+ans=c+a*y*y/b
+Steps:
+1.firstly, lexical Phase will evaluate as 
+ans=4.2+4.4*3.0*3.0/0.0
+2. Precedence of * is more over +/- , so it will be eveluated as-
+ans=4.2+13.2*3.0/0.0
+ans=4.2+39.6/0.0
+3. Division by Zero not defined so Semantic Phase  will generate an exception.
+
+Answer:
+ans=not defined
