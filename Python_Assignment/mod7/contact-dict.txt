@@ -1,2 +1,2 @@
-name : yashasvi    phone: yashasvi  email: yashasvimahajan276@gmail.com   
 name : divya@gmail.com    phone: 4534656  email: divya   
+name : yashasvi mahajan    phone: 9005408485  email: yashasvi@gmail.com   

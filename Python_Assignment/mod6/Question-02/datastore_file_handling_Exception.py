@@ -12,13 +12,16 @@ def insert():
             
             for i in datastore:
                 if i==building:
+                    print('hello')
                     for j in datastore[i]:
+                        
     
                         if j==block:
                             try:
                                 if block=='medical':
                                     
                                     while(True):
+                                        print('hello')
                                         datastore[i][j].append({'room_no':input('Enter the Room no.'),'use':input('Enter the use of the Room'),'sq-ft':input('Enter the Area of Room (in sq- feet)'),'price':input('Enter the Price of the Room')})
                                         
                                         ch=int(input('Do You Want to Enter More Rooms.\n Press 1 To Continue .\n Press 0 to Choose Another Option'))
@@ -58,14 +61,7 @@ def Display_Dept():
         p=r.readline()
 
                     
-def Update():
-    while(True):
-        building=input('Enter The Building Name in which You want to Update.\n')
-        block=input('Enter the block name in which You want to Update.\n')
-        Area=input('Enter the Area in the Block Which You Want To Update.\n')
-        datastore[i][j][k][x]=input('Enter the New Value.\n')
-        ch=input('Press 0 to Exit.\nPress 1 to continue.')
-        if ch==0:break
+
                                         
 datastore={}               
 #datastore={'office':{'medical':[{'room_no':100,'use':'reception','sq-ft':50,'price':75},{'room_no':101,'use':'waiting','sq-ft':250,'price':75},{'room_no':102,'use':'examination','sq-ft':290,'price':70},{'room_no':103,'use':'office','sq-ft':300,'price':155}],'parking':[{'location':'premium','style':'covered','price':'750'}]}}
@@ -73,10 +69,10 @@ datastore={}
 
 while True:
         
-    ch=input('Press 1 to Display\nPress 2 to insert.\nPress 3 to update\nPress 0 to exit\n')
+    ch=input('Press 1 to Display\nPress 2 to insert.\nPress 0 to exit\n')
     if ch=='1':Display_Dept()
     elif ch=='2':insert()
-    elif ch=='3':Update()
+  
     elif ch=='0':break
         
 

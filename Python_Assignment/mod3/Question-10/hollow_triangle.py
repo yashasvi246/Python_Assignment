@@ -1,18 +1,13 @@
-n=int(input('Enter any Positive integer'))
-
-
-p=n//2
-l=-1
-for i in range(n):
-    if(i==0):
-        print(' '*p,'*',end='\n')
-        
-    elif(i==n-1):
-        print('* '*n,end='')
-    else:
-                #print(p)
-        print(' '*p,'*',' '*l,'*',end='\n')
-        l=l+2
-        p=p-1
-
-
+n=int(input('enter the no. of rows'))
+for i in range(1,n+1):
+  for j in range(1,n-i+1):
+    print(' ',end='')
+  print('*',end='')
+  if 1 < i <= n - 1:
+    for k in range(1,2*i - 2):
+      print(' ',end='')
+    print('*',end='')
+  elif i == n:
+    for k in range(1,2*i - 1): 
+      print('*',end='')
+  print()

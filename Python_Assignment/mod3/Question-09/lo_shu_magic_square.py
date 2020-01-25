@@ -1,4 +1,3 @@
-
 def isMagicSquare( mat) : 
     diagonal1= 0
     for i in range(0, N) :

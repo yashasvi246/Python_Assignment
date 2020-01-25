@@ -19,9 +19,6 @@ class Contact:
         self.email_add=self.get_email()
         return self.email_add
     def __str__(self):
-        
-       
-          
         return f'Person name : {self.p_name}\nPhone : {self.p_no}\nE-mail id : {self.email_add}\n'
 def main():
         

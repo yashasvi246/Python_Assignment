@@ -75,7 +75,7 @@ def Update():
                     for j in datastore[i]:
                         if j==block:
                             print(j)
-                            o=int(input('Select the Area\n'))
+                            o=int(input('Select the Area \n'))
                             for  k  in range(len(datastore[i][j])):
                                
                                 if (k)==(o-1):
@@ -83,14 +83,16 @@ def Update():
                                         if x==Area:
                                             print(i,j,k)
                                             datastore[i][j][k][x]=input('Enter the New Value.\n')
-                
+        ch=int(input('Press 1 to continue.\nPress 0 to exit\n'))
+        if ch==0:
+            break
 datastore={'office':{'medical':[{'room_no':100,'use':'reception','sq-ft':50,'price':75},{'room_no':101,'use':'waiting','sq-ft':250,'price':75},{'room_no':102,'use':'examination','sq-ft':290,'price':70},{'room_no':103,'use':'office','sq-ft':300,'price':155}],'parking':[{'location':'premium','style':'covered','price':'750'}]}}
 
 while True:
         
     ch=input('Press 1 to Display\nPress 2 to insert.\nPress 3 to update\nPress 0 to exit\n')
     if ch=='1':Display_Dept()
-    elif ch=='2':room()
+    elif ch=='2':insert()
     elif ch=='3':Update()
     if ch=='0':break
             
