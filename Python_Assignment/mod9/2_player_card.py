@@ -14,7 +14,7 @@ class Deck:
         
         self.cards=cards
         
-        
+        self.hand=[]
         
     def add_card(self,face,suit,value,cards,o):
         self.o=o
@@ -32,56 +32,47 @@ class Deck:
         
         
 class Hand():
-    def __init__(self):
+    def __init__(self,cards):
+        self.cards=cards
         self.hand=[]
     def draw_from(self,d):
         self.d=d
-        
+        self.d.shuffle()
         self.card_drawn=self.d.next_card()
         print('Card you have Choosen is :',self.card_drawn)
         self.card=self.d.return_card()
         self.hand.append(self.card_drawn)
         ch=int(input('Enter 1 to return the card.\nEnter 0 to not return card.\n'))
         if ch==1:
-            self.return_to()
+            self.return_to(d)
         
             
         return self.hand
-    def return_to(self):
-        
-        return self.hand.append(self.card_drawn)
+    def return_to(self,d):
+        self.d=d
+        return self.card.append(self.card_drawn)
 
 class Player:
       def __init__(self,name,h):
             self.credit=0
             self.name=name
-            self.sum=0
             
-      def play(self,h,d):
+            
+      def play(self,h,d,sum):
             self.h=h
             self.d=d
-            self.credit=0
-            while True:
-                  self.d=d
-                  self.d.shuffle()
-                  hand=h.draw_from(self.d)
-                  print(hand)
-                  self.sum=self.sum+hand[-1][2]
-                  print('Your Sum is ',self.sum)
-                  if self.sum>=21:
-                        print('Hurray!! ,You Win')
-                        self.credit+=1
-                        ch=int(input('Enter 1 to Play again.\nEnter 0 to Quit.\n'))
-                        print('You had choosen ',h.hand)
-
-                        h.hand.clear()
-                        self.sum=0
-                        
-                        if ch==0:
-                              print('credit of ',self.name,' is ',self.credit)
-                              break
-                        else:
-                            print('Invalid Input')
+            self.sum=sum
+            
+            self.d=d
+            self.d.shuffle()
+            hand=h.draw_from(self.d)
+            
+            self.sum=self.sum+hand[-1][2]
+            print('Your Sum is ',self.sum)
+            if self.sum>=21:
+                print('Hurray!! ,You Win')
+                self.credit+=1
+                
             return self.credit,self.sum
                     
                 
@@ -93,15 +84,19 @@ class Game:
             self.player1=player1
             self.player2=player2
             self.chance=0
+            self.sum1=0
+            self.sum2=0
+            
       def play(self,h,d,p):
             self.h=h
             self.d=d
             self.p=p
             u=0
             while(u<20):
+                  u+=1
                   if self.chance%2==0:
                         print(self.player1,' ,Your Chance .\n')
-                        self.credit1,self.sum1=p.play(h,d)
+                        self.credit1,self.sum1=p.play(h,d,self.sum1)
                         if self.sum1>=21:
                               print(self.player1 ,' Wins')
                               print('score :',self.sum1)
@@ -112,7 +107,8 @@ class Game:
                         self.chance+=1
                   else:
                         print(self.player2,' ,Your Chance .\n')
-                        self.credit2,self.sum2=p.play(h,d)
+                        self.credit2,self.sum2=p.play(h,d,self.sum2)
+                        
                         
                         if self.sum2>=21:
                               print(self.player2 ,' Wins')
@@ -124,16 +120,18 @@ class Game:
                               
                   
                         
-                  u+=1    
-                  
+                      
             if u>20:
                   win=max(self.sum1,self.sum2)
-                  if win==self.sum1:
+                  if self.sum1==self.sum2:
+                      print('Tie')
+                  elif win==self.sum1:
                         print(player1 ,' Wins')
                         print('score :',self.sum1)
-                  if win==self.sum2:
+                  elif win==self.sum2:
                           print(player2 ,' Wins')
                           print('score :',self.sum2)
+        
                   
 
 
@@ -154,14 +152,11 @@ def main():
                 d.add_card(0,suit[c],i,cards,o)
         c+=1
     
-    h=Hand()
+    h=Hand(cards)
     
     p=Player('yashasvi',h)
     g=Game(input('Enter the name of the player1'),input('Enter the name of the player2'))
     g.play(h,d,p)
                         
 
-    
-   
-    
 main()
